@@ -73,7 +73,13 @@ vector<string> change_to_reverse_Polish_entry(string&expression)
                 count++;
             }
             rPe.push_back(num);// заносим операнд(число) в выходную строку
-        } else if(op_tor_priority(expression[count]) > 0){ // чтение операторов из строки!
+        } else if(expression[count] == 'x'){
+            string x;
+            cout << "Введите x" << endl;
+            cin >> x;
+            rPe.push_back(x);
+            count++;
+        }else if(op_tor_priority(expression[count]) > 0){ // чтение операторов из строки!
             while(!op_tor.empty() and (op_tor_priority(op_tor.top()) >= op_tor_priority(expression[count]))){ // пока операторы стека большего приоритета
                 rPe.push_back(string(1, op_tor.top()));
                 op_tor.pop(); // удаляем их из стека
