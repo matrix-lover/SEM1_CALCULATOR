@@ -22,12 +22,6 @@ int op_tor_priority(char op_tor){
     return 0;
 }
 
-bool is_sin(string&func) { return func == "sin";} // sin
-bool is_cos(string&func) { return func == "cos";} // cos
-bool is_tg(string&func) { return func == "tg";} // tg
-bool is_ctg(string&func) { return func == "ctg";}// ctg
-bool is_exp(string&func) { return func == "exp";} // exp
-
 void rPe_in_complex_func_argument(string& expression, vector<string>& rPe, size_t& count){
     stack<char> op_tor_in_func;
     int count_open_brace = 0;
