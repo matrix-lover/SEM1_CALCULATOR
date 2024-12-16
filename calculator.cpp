@@ -111,6 +111,10 @@ vector<string> change_to_reverse_Polish_entry(string&expression)
                 rPe.push_back(string(1, op_tor.top()));
                 op_tor.pop(); // удаляем их из стека
             }
+            if(op_tor.empty() or (expression[count] == '-' and !isdigit(expression[count-1])))
+            {
+                rPe.push_back("0");
+            }
             op_tor.push(expression[count]); // заносим текущий оператор
             count++;
         } else if(expression.substr(count, 3) == "sin")
@@ -238,3 +242,4 @@ int main()
     vector<string> rPe = change_to_reverse_Polish_entry(expression);
     cout << rpe_calculation(rPe) << endl;
 }
+
